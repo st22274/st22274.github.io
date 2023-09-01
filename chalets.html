@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Maunga Club - Chalets</title>
+</head>
+<body class="chalets-page">
+  <header>
+    <img class="logo" src="img/Maunga_Club_white.png" alt/>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="chalets.html">CHALETS</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li><a href="join.html">JOIN</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <section class="chalets-header">
+    <div class="chalets-header-content">
+      <h1>Discover Our Exclusive Chalets!</h1>
+      <p>Enjoy a unique mountain retreat with our exclusive chalets, available only for Maunga Club members.</p>
+    </div>
+  </section>
+
+  <section class="chalets-key-info">
+    <h2>Chalet Information</h2>
+    <ul>
+      <li>Only Club members can access the chalets.</li>
+      <li>All chalet bookings must be from Friday to Sunday.</li>
+      <li>Chalets offer shared accommodation for between 6 and 40 people per chalet.</li>
+      <li>All three chalets are on the mountain, allowing you to ski to and from the chalets.</li>
+      <li>The mountain provides 550 hectares of skiing/snowboarding area, and the longest ski/snowboard season in New Zealand.</li>
+    </ul>
+  </section>
+
+  <section class="chalet">
+    <div class="chalet-info">
+      <h2>KAKAPO</h2>
+      <p>Experience luxury and comfort in our exquisite Kakapo chalet.</p>
+      <p>Largest of the chalets: large kitchen, dining and living area.</p>
+      <p>Great amenities</p>
+      <p>Maximum Adults: 10</p>
+      <p>Maximum Children: 30</p>
+    </div>
+    <div class="chalet-images">
+      <div class="image-slider">
+        <img src="img/kakapo/cabin_exterior.jpg" alt="Kakapo Exterior">
+        <img src="img/kakapo/cabin_view.jpg" alt="Kakapo View">
+        <img src="img/kakapo/hallway.jpg" alt="Kakapo Hallway">
+        <img src="img/kakapo/bunk_room.jpg" alt="Kakapo Bunk Room">
+      </div>
+      <div class="arrow-left">&lt;</div>
+      <div class="arrow-right">&gt;</div>
+    </div>
+  </section>
+
+ <section class="chalet">
+    <div class="chalet-images">
+      <div class="image-slider">
+        <img src="img/pukeko/chalet_exterior.jpg" alt="Pukeko Exterior">
+        <img src="img/pukeko/chalet_view.jpg" alt="Pukeko View">
+        <img src="img/pukeko/adult_bedroom.jpg" alt="Pukeko Adult Bedroom">
+        <img src="img/pukeko/bathroom.jpg" alt="Pukeko Bathroom">
+      </div>
+      <div class="arrow-left">&lt;</div>
+      <div class="arrow-right">&gt;</div>
+    </div>
+    <div class="chalet-info">
+      <h2>PUKEKO</h2>
+      <p>Experience luxury and comfort in our exquisite Pukeko chalet.</p>
+      <p>Pukeko is great for laerge gruops/families wanting a chalet by themselves.</p>
+      <p>Limits on adult/child number ensure comfortable stay.</p>
+      <p>Maximum Adults: 6</p>
+      <p>Maximum Children: 15</p>
+    </div>
+  </section>
+
+  <section class="chalet">
+    <div class="chalet-info">
+      <h2>KERERU</h2>
+      <p>Experience luxury and comfort in our exquisite Kereru chalet.</p>
+      <p>Kereru is a great option for families with 2-4 children.</p>
+      <p>2 bedrooms and separate living area.</p>
+      <p>Maximum Adults: 2</p>
+      <p>Maximum Children: 4</p>
+    </div>
+    <div class="chalet-images">
+      <div class="image-slider">
+        <img src="img/kereru/cabin_exterior.jpg" alt="Kekeru Exterior">
+        <img src="img/kereru/kitchen.jpg" alt="Kereru Kitchen">
+        <img src="img/kereru/adult_bedroom.jpg" alt="Kereru Adult Bedroom">
+        <img src="img/kereru/kids_bedroom.jpg" alt="Kereru Kids Bedroom">
+      </div>
+      <div class="arrow-left">&lt;</div>
+      <div class="arrow-right">&gt;</div>
+    </div>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.chalet').each(function() {
+      var slider = $(this).find('.image-slider');
+      var currentSlide = 0;
+      var images = slider.find('img');
+
+      function showSlide(index) {
+        images.hide();
+        images.eq(index).fadeIn();
+      }
+
+      function nextSlide() {
+        currentSlide = (currentSlide + 1) % images.length;
+        showSlide(currentSlide);
+      }
+
+      showSlide(currentSlide);
+
+      var arrows = $(this).find('.arrow-left, .arrow-right');
+      arrows.click(function() {
+        if ($(this).hasClass('arrow-left')) {
+          currentSlide = (currentSlide - 1 + images.length) % images.length;
+        } else if ($(this).hasClass('arrow-right')) {
+          nextSlide();
+        }
+        showSlide(currentSlide);
+      });
+    });
+  });
+</script>
+  
+  <footer>
+    <p><small>&copy: Maunga Club 2023 - Website by A Dalmatava</small></p>
+  </footer>
+</body>
+</html>
